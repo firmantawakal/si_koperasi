@@ -10,8 +10,9 @@ include("../../config.php");
 
     $sql1 = "SELECT * from simpanan where id_anggota = $id_anggota";
     $query1 = mysqli_query($db, $sql1);
+    $data1 = mysqli_fetch_array($query1);
 
-    if(!$query1) {
+    if(count($data1) < 1) {
         $sql2 = "INSERT INTO simpanan (id_anggota) VALUE ('$id_anggota')";
         $query2 = mysqli_query($db, $sql2);
     }
